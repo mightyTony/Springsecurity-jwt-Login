@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/security-jwt?characterEncoding=utf8&useUnicode=true&mysqlEncoding=utf8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Seoul
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000 #1000개의 엔티티를 한 번의 쿼리로 가져오려고 시도
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# jwt.secret.key 의 값은 256bit 이상이어야 한다.
+jwt:
+  secret:
+    key: 6GedFF/1wHqiP3fzpQM+oF/ReQYm4HoaKxdjA18F4hE=
+
