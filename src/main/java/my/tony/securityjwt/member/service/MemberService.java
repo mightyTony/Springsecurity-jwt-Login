@@ -34,6 +34,8 @@ public class MemberService {
             throw new BadCredentialsException("잘못된 계정 정보 입니다.");
         }
 
+        // String token = jwtProvider.createToken(member.getAccount(), member.getRoles())
+        // token 헤더에 넣는 작업 후 builder에 넣자
         return MemberResponse.builder()
                 .id(member.getId())
                 .account(member.getAccount())
@@ -41,6 +43,7 @@ public class MemberService {
                 .email(member.getEmail())
                 .nickname(member.getNickname())
                 .roles(member.getRoles())
+                //.token(jwtProvider.createToken(member.getAccount(), member.getRoles()))
                 .token(jwtProvider.createToken(member.getAccount(), member.getRoles()))
                 .build();
     }

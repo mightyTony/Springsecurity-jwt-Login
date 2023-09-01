@@ -83,7 +83,7 @@ public class JwtProvider {
     public boolean validateToken(String token) {
         try{
             // 토큰 첫 부분 "BEARER " 로 시작하는 지 검사
-            if(!token.substring(0, "BEARER ".length()).equalsIgnoreCase("BEARER ")){
+            if(!token.substring(0, "Bearer ".length()).equalsIgnoreCase("Bearer ")){
                 return false;
             } else {
                 // "BEARER " 부분 제거하고 토큰 문자열만 추출
@@ -94,6 +94,7 @@ public class JwtProvider {
             // 만료 시 false, 만료 시간 < 현재 시간
             return !claims.getBody().getExpiration().before(new Date());
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
