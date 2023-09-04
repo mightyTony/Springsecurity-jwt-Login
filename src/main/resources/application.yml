@@ -11,7 +11,7 @@ spring:
       hibernate:
         default_batch_fetch_size: 1000 #1000개의 엔티티를 한 번의 쿼리로 가져오려고 시도
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
 # swagger (localhost:8080/swagger-ui/)
   mvc:
