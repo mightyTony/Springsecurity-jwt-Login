@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 public class MemberController {
@@ -20,7 +22,7 @@ public class MemberController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Boolean> signUp(@RequestBody MemberRequest request) throws Exception {
+    public ResponseEntity<Boolean> signUp(@Valid @RequestBody MemberRequest request) throws Exception {
         return new ResponseEntity<>(memberService.regiter(request), HttpStatus.OK);
     }
 
